@@ -15,11 +15,11 @@ class View(ft.UserControl):
         self._title = None
 
         self.ddPD = None
-        self.ddCodins = None
+        self.ddCodIns = None
         self.btnPrintCorsiPD = None
         self.btnPrintIscrittiCorsiPD = None
-        self.btnPrintIscrittiCodins = None
-        self.btnPrintCDSCodins = None
+        self.btnPrintIscrittiCodIns = None
+        self.btnPrintCDSCodIns = None
 
 
     def load_interface(self):
@@ -27,29 +27,45 @@ class View(ft.UserControl):
         self._title = ft.Text("Gestore Corsi - Edizione 2026", color="blue", size=24)
         self._page.controls.append(self._title)
 
-        #ROW1
-        self.ddPD = ft.Dropdown(label="Periodo Didattico",
-                                options = [ft.dropdown.Option("I"), ft.dropdown.Option("II")],
-                                width=200)
-        self.btnPrintCorsiPD = ft.ElevatedButton(text="Stampa Corsi",
-                                                 on_click=self._controller.handlePrintCorsiPD,
-                                                 width=300)
-        self.btnPrintIscrittiCorsiPD = ft.ElevatedButton(text="Stampa numero iscritto",
-                                                 on_click=self._controller.handlePrintIscrittiCorsiPD,
-                                                 width=300)
+        # ROW 1
+        self.ddPD = ft.Dropdown(
+            label = "Periodo Didattico",
+            options= [ft.dropdown.Option("I"), ft.dropdown.Option("II")],
+            width=200
+        )
+        self.btnPrintCorsiPD = ft.ElevatedButton(
+            text="Stampa Corsi",
+            on_click= self._controller.handlePrintCorsiPD,
+            width = 300
+        )
+        self.btnPrintIscrittiCorsiPD = ft.ElevatedButton(
+            text="Stampa Numero Iscritti",
+            on_click= self._controller.handlePrintIscrittiCorsiPD,
+            width=300
+        )
 
         row1 = ft.Row([self.ddPD, self.btnPrintCorsiPD, self.btnPrintIscrittiCorsiPD])
 
-        self.ddCodins = ft.Dropdown(label = "Corso", width=200)
-        self._controller.fillddCodins()
-        self.btnPrintIscrittiCodins = ft.ElevatedButton(text = "Stampa iscritti al corso",
-                                                        on_click = self._controller.handlePrintIscrittiCodins,
-                                                 width=300)
-        self.btnPrintCDSCodins = ft.ElevatedButton(text = "Stampa CDS afferenti",
-                                                   on_click = self._controller.handlePrintCDSCodins,
-                                                 width=300)
 
-        row2 = ft.Row([self.ddCodins, self.btnPrintIscrittiCodins, self.btnPrintCDSCodins])
+        # ROW 2
+        self.ddCodIns = ft.Dropdown(
+            label="Corso",
+            width=200
+        )
+        self._controller.fillddCodIns()
+        self.btnPrintIscrittiCodIns = ft.ElevatedButton(
+            text="Stampa Iscritto al Corso",
+            on_click= self._controller.handlePrintIscrittiCodIns,
+            width=300
+        )
+        self.btnPrintCDSCodIns = ft.ElevatedButton(
+            text="Stampa CDS afferenti",
+            on_click = self._controller.handlePrintCDSCodIns,
+            width=300
+        )
+
+        row2 = ft.Row([self.ddCodIns, self.btnPrintCDSCodIns, self.btnPrintIscrittiCodIns])
+
         self._page.add(row1, row2)
 
         # List View where the reply is printed

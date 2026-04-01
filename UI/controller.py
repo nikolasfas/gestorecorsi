@@ -16,26 +16,26 @@ class Controller:
     def handlePrintIscrittiCorsiPD(self, e):
         pass
 
-    def handlePrintIscrittiCodins(self, e):
+    def handlePrintIscrittiCodIns(self, e):
         pass
 
-    def handlePrintCDSCodins(self, e):
+    def handlePrintCDSCodIns(self, e):
         pass
 
-    def fillddCodins(self):
-        # for cod in self._model.getCodins():
-        #     self._view.ddCodins.options.append(
+    def fillddCodIns(self):
+        #for cod in self._model.getCodIns():
+        #     self._view.ddCodIns.options.append(
         #         ft.dropdown.Option(cod)
         #     )
 
         for c in self._model.getAllCorsi():
-            self._view.ddCodins.options.append(ft.dropdown.Option(
-                key = c.codins,
+            self._view.ddCodIns.options.append(ft.dropdown.Option(
+               key = c.codins,
                 data = c,
-                on_click = self._choiceDDCodins
+                on_click=self._choiceDDCodIns
             ))
             pass
 
-    def _choiceDDCodins(self, e):
-        self._ddCodinsValue = e.control.data
-        print(self._ddCodinsValue)
+    def _choiceDDCodIns(self,e):
+        self._ddCodInsValue = e.control.data
+        print(self._ddCodInsValue)

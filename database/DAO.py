@@ -5,19 +5,18 @@ from model.corso import Corso
 class DAO():
 
     @staticmethod
-    def getCodins():
+    def getCodIns():
         cnx = DBConnect.get_connection()
         cursor = cnx.cursor(dictionary=True)
 
         query = """select codins
-                    FROM corso"""
+        from  corso c"""
 
         cursor.execute(query)
 
         res = []
         for row in cursor:
             res.append(row["codins"])
-
 
         cursor.close()
         cnx.close()
@@ -28,7 +27,8 @@ class DAO():
         cnx = DBConnect.get_connection()
         cursor = cnx.cursor(dictionary=True)
 
-        query = """select * FROM corso"""
+        query = """select *
+                   from corso c"""
 
         cursor.execute(query)
 
@@ -41,7 +41,7 @@ class DAO():
                 pd = row["pd"]
             ))
 
-
         cursor.close()
         cnx.close()
         return res
+
