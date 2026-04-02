@@ -44,7 +44,8 @@ class View(ft.UserControl):
             width=300
         )
 
-        row1 = ft.Row([self.ddPD, self.btnPrintCorsiPD, self.btnPrintIscrittiCorsiPD])
+        row1 = ft.Row([self.ddPD, self.btnPrintCorsiPD, self.btnPrintIscrittiCorsiPD],
+                      alignment=ft.MainAxisAlignment.CENTER)
 
 
         # ROW 2
@@ -64,7 +65,8 @@ class View(ft.UserControl):
             width=300
         )
 
-        row2 = ft.Row([self.ddCodIns, self.btnPrintCDSCodIns, self.btnPrintIscrittiCodIns])
+        row2 = ft.Row([self.ddCodIns, self.btnPrintCDSCodIns, self.btnPrintIscrittiCodIns],
+                      alignment=ft.MainAxisAlignment.CENTER)
 
         self._page.add(row1, row2)
 
