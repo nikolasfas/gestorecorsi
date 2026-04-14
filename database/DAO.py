@@ -132,5 +132,5 @@ class DAO():
 
         cursor.close()
         cnx.close()
-        return res
+        return res()
 
